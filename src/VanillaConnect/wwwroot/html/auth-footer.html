@@ -1,0 +1,19 @@
+﻿<script type="text/javascript">
+	if (document.getElementById('lr-form-signup') !== null) {
+		var checkBox =
+			'<div class="row"><div class="form-group col-sm-12">\r\n<input id="termsField" type="checkbox" required class="form__checkbox"><label id="termsLabel" for="termsField" class="tos">I accept the&nbsp;<a href="https://kenticocloud.com/terms-of-service" target="_blank">Terms of Service</a>.</label>\r\n</div></div>';
+		var button = document.querySelector('#lr-inner-form > .form-group');
+		button.insertAdjacentHTML('beforebegin', checkBox);
+		$('form').on('submit', function () {
+			if (!$("#termsField").is(":checked")) {
+				alert("You have to accept the Terms of Service.");
+				return false;
+			}
+			return true;
+		});
+
+		var subTitle = '<p class="sublegend" id="sublegend">You will be able to use your new account in Kentico Cloud as well.</p>';
+		var legend = document.querySelector('form > legend');
+		legend.insertAdjacentHTML('afterend', subTitle);
+	}
+</script>
